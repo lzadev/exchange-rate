@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  orion-rates:
+    build:
+      context: ./orion-rates
+      dockerfile: DockerFile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+
+  exchange-rate-api:
+    build:
+      context: ./ExchangeRateApi/ExchangeRateApi
+      dockerfile: Dockerfile
+    ports:
+      - "5500:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+
+  mercuriofx:
+    build:
+      context: ./mercuriofx
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
