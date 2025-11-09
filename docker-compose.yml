@@ -3,9 +3,18 @@ services:
   orion-rates:
     build:
       context: ./orion-rates
-      dockerfile: DockerFile
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=production
+
+  altair-exchange:
+    build:
+      context: ./altair-exchange
+      dockerfile: Dockerfile
+    ports:
+      - "5600:3000"
     environment:
       - NODE_ENV=production
 
