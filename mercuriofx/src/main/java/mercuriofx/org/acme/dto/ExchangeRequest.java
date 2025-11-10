@@ -49,4 +49,9 @@ public class ExchangeRequest {
     public void setAmount(Double amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "ExchangeRequest from=" + from + ", to=" + to + ", amount=" + amount + "";
+    }
 }
