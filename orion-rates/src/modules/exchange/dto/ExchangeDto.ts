@@ -1,7 +1,9 @@
+import { ApiProperty } from '@nestjs/swagger/dist/decorators/api-property.decorator';
 import { Type } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class ExchangeDto {
+  @ApiProperty({ example: 'USD', description: 'Origin currency' })
   @IsString({
     message: 'from must be a string',
   })
@@ -10,6 +12,7 @@ export class ExchangeDto {
   })
   from: string;
 
+  @ApiProperty({ example: 'EUR', description: 'Target currency' })
   @IsString({
     message: 'to must be a string',
   })
@@ -18,6 +21,7 @@ export class ExchangeDto {
   })
   to: string;
 
+  @ApiProperty({ example: 100, description: 'Amount to be exchanged' })
   @Type(() => Number)
   @IsNumber(
     {},
