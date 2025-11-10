@@ -1,4 +1,4 @@
-namespace ExchangeRateApi;
+namespace ExchangeGateway;
 
 public class WeatherForecast
 {

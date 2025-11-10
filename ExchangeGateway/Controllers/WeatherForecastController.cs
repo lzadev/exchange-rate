@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ExchangeRateApi.Controllers;
+namespace ExchangeGateway.Controllers;
 
 [ApiController]
 [Route("[controller]")]

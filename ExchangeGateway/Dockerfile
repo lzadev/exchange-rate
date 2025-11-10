@@ -6,16 +6,16 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ExchangeRateApi.csproj ./
-RUN dotnet restore "ExchangeRateApi.csproj"
+COPY ExchangeGateway.csproj ./
+RUN dotnet restore "ExchangeGateway.csproj"
 COPY . .
-RUN dotnet build "ExchangeRateApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "ExchangeGateway.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "ExchangeRateApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "ExchangeGateway.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ExchangeRateApi.dll"]
+ENTRYPOINT ["dotnet", "ExchangeGateway.dll"]

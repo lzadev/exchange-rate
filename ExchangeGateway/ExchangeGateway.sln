@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateApi", "ExchangeRateApi.csproj", "{2EB99878-C447-41E5-AC7F-B88C2ECC2B44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeGateway", "ExchangeGateway.csproj", "{2EB99878-C447-41E5-AC7F-B88C2ECC2B44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
