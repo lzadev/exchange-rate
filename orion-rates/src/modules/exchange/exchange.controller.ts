@@ -1,8 +1,6 @@
 import { Controller, Get, Query, UseGuards } from '@nestjs/common';
 import { ExchangeService } from './exchange.service';
-import { ExchangeDto } from './dto/ExchangeDto';
-import { ExchangeResult } from './dto/ExchangeResult';
-import { ApiKeyGuard } from 'common/guards/api-key.guard';
+import { ApiKeyGuard } from 'src/common/guards/api-key.guard';
 import {
   ApiBadRequestResponse,
   ApiForbiddenResponse,
@@ -12,7 +10,9 @@ import {
   ApiSecurity,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { ErrorResponseDto } from 'common/dto/error-response';
+import { ErrorResponseDto } from 'src/common/dto/error-response-dto';
+import { ResponseDto } from './dto/response-dto';
+import { ExchangeQueryDto } from './dto/excchange-query-dto';
 
 @ApiSecurity('x-api-key')
 @Controller('exchanges')
@@ -22,7 +22,7 @@ export class ExchangeController {
   @Get()
   @ApiOkResponse({
     description: 'Successful exchange rate converted',
-    type: ExchangeResult,
+    type: ResponseDto,
   })
   @ApiBadRequestResponse({
     description: 'Ivalid input data',
@@ -43,7 +43,7 @@ export class ExchangeController {
     description: 'Internal server error, something went wrong',
     type: ErrorResponseDto,
   })
-  getRate(@Query() query: ExchangeDto): ExchangeResult {
+  getRate(@Query() query: ExchangeQueryDto): ResponseDto {
     return this.exchangeService.getExchangeRate(query);
   }
 }

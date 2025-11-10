@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common/pipes/validation.pipe';
 import { BadRequestException } from '@nestjs/common/exceptions/bad-request.exception';
-import { GlobalExceptionFilter } from 'common/filters/global-exception-filter';
+import { GlobalExceptionFilter } from 'src/common/filters/global-exception-filter';
 import { DocumentBuilder } from '@nestjs/swagger/dist/document-builder';
 import { SwaggerModule } from '@nestjs/swagger/dist/swagger-module';
 
