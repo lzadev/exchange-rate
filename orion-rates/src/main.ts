@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common/pipes/validation.pipe';
 import { BadRequestException } from '@nestjs/common/exceptions/bad-request.exception';
+import { GlobalExceptionFilter } from 'common/filters/global-exception-filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,9 +12,7 @@ async function bootstrap() {
       whitelist: true,
       forbidNonWhitelisted: true,
       transform: true,
-      // eslint-disable-next-line prettier/prettier
       exceptionFactory: errors => {
-        // eslint-disable-next-line prettier/prettier
         const messages = errors.flatMap(err => Object.values(err.constraints ?? {}));
 
         const messageString = messages.join(', ');
@@ -22,6 +21,8 @@ async function bootstrap() {
       },
     }),
   );
+
+  app.useGlobalFilters(new GlobalExceptionFilter());
 
   await app.listen(process.env.PORT ?? 3300);
 }

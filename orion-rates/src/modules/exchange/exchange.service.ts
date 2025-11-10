@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { ExchangeDto } from './dto/ExchangeDto';
 import { rates } from 'src/data/rates';
 import { ExchangeResult } from './dto/ExchangeResult';
@@ -19,7 +19,7 @@ export class ExchangeService {
     const rate = rates.find(r => r.from == request.from && r.to == request.to);
 
     if (!rate) {
-      throw new NotFoundException({ message: 'Exchange rate not found' });
+      throw new NotFoundException('Exchange rate not found');
     }
 
     return rate.rate;
@@ -27,7 +27,7 @@ export class ExchangeService {
 
   validateRequest(request: ExchangeDto) {
     if (request.value <= 0) {
-      throw new Error('Value must be greater than zero');
+      throw new BadRequestException('Value must be greater than zero');
     }
   }
 }
