@@ -8,6 +8,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - API_KEY=A7k9bT3vQf6ZsR2pL8m4HyQ2
 
   altair-exchange:
     build:
