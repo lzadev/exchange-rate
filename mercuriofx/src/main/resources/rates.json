@@ -1,0 +1,20 @@
+[
+  { "from": "USD", "to": "EUR", "rate": 0.94 },
+  { "from": "EUR", "to": "USD", "rate": 1.06 },
+  { "from": "USD", "to": "GBP", "rate": 0.78 },
+  { "from": "GBP", "to": "USD", "rate": 1.28 },
+  { "from": "EUR", "to": "GBP", "rate": 0.83 },
+  { "from": "GBP", "to": "EUR", "rate": 1.21 },
+  { "from": "USD", "to": "JPY", "rate": 149.30 },
+  { "from": "JPY", "to": "USD", "rate": 0.0067 },
+  { "from": "EUR", "to": "JPY", "rate": 158.70 },
+  { "from": "JPY", "to": "EUR", "rate": 0.0063 },
+  { "from": "USD", "to": "DOP", "rate": 59.80 },
+  { "from": "DOP", "to": "USD", "rate": 0.0167 },
+  { "from": "EUR", "to": "DOP", "rate": 63.40 },
+  { "from": "DOP", "to": "EUR", "rate": 0.0157 },
+  { "from": "GBP", "to": "DOP", "rate": 75.50 },
+  { "from": "DOP", "to": "GBP", "rate": 0.0132 },
+  { "from": "JPY", "to": "DOP", "rate": 0.41 },
+  { "from": "DOP", "to": "JPY", "rate": 2.44 }
+]
