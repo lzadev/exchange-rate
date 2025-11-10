@@ -1,4 +1,16 @@
 {
+  "semi": true,
   "singleQuote": true,
-  "trailingComma": "all"
+  "printWidth": 110,
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "bracketSameLine": false,
+  "jsxSingleQuote": false,
+  "singleAttributePerLine": false,
+  "importOrder": ["^react", "^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
