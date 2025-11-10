@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class ExchangeDto {
@@ -17,6 +18,7 @@ export class ExchangeDto {
   })
   to: string;
 
+  @Type(() => Number)
   @IsNumber(
     {},
     {
