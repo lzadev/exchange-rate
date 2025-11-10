@@ -2,7 +2,7 @@ import { Controller, Get, Query, UseGuards } from '@nestjs/common';
 import { ExchangeService } from './exchange.service';
 import { ExchangeQueryDto } from './dto/exchange-query-dto';
 import { ResponseDto } from './dto/response-dto';
-import { ApiKeyGuard } from 'common/guards/api-key.guard';
+import { ApiKeyGuard } from 'src/common/guards/api-key.guard';
 import {
   ApiBadRequestResponse,
   ApiForbiddenResponse,
