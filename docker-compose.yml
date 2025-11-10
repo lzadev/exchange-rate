@@ -20,7 +20,7 @@ services:
 
   exchange-rate-api:
     build:
-      context: ./ExchangeRateApi
+      context: ./ExchangeGateway
       dockerfile: Dockerfile
     ports:
       - "5500:80"
