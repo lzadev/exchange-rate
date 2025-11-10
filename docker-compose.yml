@@ -34,6 +34,7 @@ services:
       context: ./mercuriofx
       dockerfile: src/main/docker/Dockerfile.jvm
     ports:
-      - "4000:4000"
+      - "4000:8080"
     environment:
       - NODE_ENV=production
+      - API_KEY=MercurioFX2024Key

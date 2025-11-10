@@ -25,7 +25,6 @@ public class ExchangeRequest {
     @XmlElement(name = "Amount")
     private Double amount;
 
-
     public String getFrom() {
         return from;
     }

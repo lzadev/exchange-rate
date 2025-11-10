@@ -17,7 +17,8 @@ import mercuriofx.org.acme.dto.ErrorResponse;
 @Provider
 @Priority(Priorities.AUTHENTICATION)
 public class ApiKeyFilter implements ContainerRequestFilter {
-    @ConfigProperty(name = "api_key")
+
+    @ConfigProperty(name = "API_KEY")
     String apiKey;
 
     private static final Logger LOG = Logger.getLogger(ApiKeyFilter.class);
@@ -32,11 +33,10 @@ public class ApiKeyFilter implements ContainerRequestFilter {
             final var errorResponse = new ErrorResponse("Invalid or missing API key");
 
             requestContext.abortWith(
-                Response.status(Response.Status.UNAUTHORIZED)
-                        .entity(errorResponse   )
-                        .type(MediaType.APPLICATION_XML)
-                        .build()
-            );
+                    Response.status(Response.Status.UNAUTHORIZED)
+                            .entity(errorResponse)
+                            .type(MediaType.APPLICATION_XML)
+                            .build());
         }
 
         LOG.infof("Authorized request");

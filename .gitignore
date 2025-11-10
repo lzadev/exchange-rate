@@ -98,7 +98,7 @@ temp/
 **/.quarkus/
 **/.quarkus-cache/
 **/quarkus.log
-**/application.properties
+# **/application.properties
 **/application.yml
 
 # Logs & temporary

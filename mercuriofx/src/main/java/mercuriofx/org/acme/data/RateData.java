@@ -42,15 +42,16 @@ public class RateData {
                 throw new IllegalStateException("rates.json not found in classpath");
             }
 
-            List<Rate> rates = MAPPER.readValue(inputStream, new TypeReference<List<Rate>>() {});
+            List<Rate> rates = MAPPER.readValue(inputStream, new TypeReference<List<Rate>>() {
+            });
             LOG.infof("Loaded exchange rates from rates.json");
-            
+
             return rates.stream().collect(
-                Collectors.toMap(
-                    rate -> rate.getFrom().toUpperCase() + "-" + rate.getTo().toUpperCase(),
-                    rate -> rate,
-                    (existing, replacement) -> existing.getRate() >= replacement.getRate() ? existing : replacement
-                )
+                    Collectors.toMap(
+                            rate -> rate.getFrom().toUpperCase() + "-" + rate.getTo().toUpperCase(),
+                            rate -> rate,
+                            (existing, replacement) -> existing.getRate() >= replacement.getRate() ? existing : replacement
+                    )
             );
         } catch (IOException e) {
             LOG.error("Failed to load rates.json", e);

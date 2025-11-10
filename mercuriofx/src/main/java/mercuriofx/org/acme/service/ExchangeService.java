@@ -11,6 +11,7 @@ import mercuriofx.org.acme.dto.ExchangeResponse;
 
 @ApplicationScoped
 public class ExchangeService {
+
     private static final Logger LOG = Logger.getLogger(ExchangeService.class);
 
     @Inject

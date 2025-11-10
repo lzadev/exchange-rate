@@ -1,11 +1,13 @@
 package mercuriofx.org.acme.model;
 
 public class Rate {
+
     private String from;
     private String to;
     private double rate;
 
-    public Rate(){}
+    public Rate() {
+    }
 
     public Rate(String from, String to, double rate) {
         this.from = from;
