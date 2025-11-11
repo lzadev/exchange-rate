@@ -1,6 +1,9 @@
 # exchange-rate
 
-## Overview
+> **Note:** Docker must be running before executing the project.
+> **Info:** All API keys are set up in the docker-compose file only for demo purposes.
+
+## 1. Overview
 
 Multi-service platform for currency exchange, including:
 
@@ -8,24 +11,17 @@ Multi-service platform for currency exchange, including:
 - .NET APIs (`gateway-api`)
 - Java/Quarkus microservice (`mercuriofx`)
 
-> **Note:** Docker must be running before executing the project.
+## 2. Project Structure
 
-> **Info:** All API keys are set up in the docker-compose file only for demo purposes. Do not use these keys in production.
-
-## Communication Diagram
-
-The `gateway-api` communicates with all backend services (`orion-rates`, `altair-exchange`, `mercuriofx`) to get the best exchange rate offer for the client request.
-
-```mermaid
-flowchart TD
-    Client -->|HTTP Request| gateway-api
-    gateway-api -->|REST API| orion-rates
-    gateway-api -->|REST API| altair-exchange
-    gateway-api -->|REST API| mercuriofx
-    gateway-api -->|Aggregates best rate| Client
+```
+orion-rates/
+altair-exchange/
+Gateway/
+mercuriofx/
+docker-compose.yml
 ```
 
-## Currency Conversion Available
+## 3. Currency Conversion Available
 
 The following currency pairs are supported for conversion:
 
@@ -50,53 +46,37 @@ The following currency pairs are supported for conversion:
 | JPY  | DOP |
 | DOP  | JPY |
 
-## Services
+## 4. Communication Diagram
 
-### orion-rates
+The `gateway-api` communicates with all backend services (`orion-rates`, `altair-exchange`, `mercuriofx`) to get the best exchange rate offer for the client request.
 
-NestJS API for currency rates and conversion.
-
-### altair-exchange
-
-NestJS API for advanced exchange operations.
-
-### gateway-api
-
-.NET API gateway for service orchestration.
-
-### mercuriofx
-
-Java/Quarkus microservice for currency conversion.
-
-## Running Locally
-
-1. Build and start all services:
-
-   ```sh
-   docker compose up --build
-   ```
-
-2. Access services and Swagger documentation:
-
-   - orion-rates: [http://localhost:3000](http://localhost:3000) | Swagger: [http://localhost:3000/api](http://localhost:3000/api)
-   - altair-exchange: [http://localhost:5600](http://localhost:5600) | Swagger: [http://localhost:5600/api](http://localhost:5600/api)
-   - gateway-api: [http://localhost:5500](http://localhost:5500) | Swagger: [http://localhost:5500/swagger](http://localhost:5500/swagger)
-   - mercuriofx: [http://localhost:4000](http://localhost:4000) | Swagger: [http://localhost:4000/q/swagger-ui](http://localhost:4000/q/swagger-ui)
-
-3. Environment Variables:
-   - `API_KEY` for NestJS services
-   - `ASPNETCORE_ENVIRONMENT` for .NET services
-
-## Project Structure
-
-```
-orion-rates/
-altair-exchange/
-Gateway/
-mercuriofx/
-docker-compose.yml
+```mermaid
+flowchart TD
+    Client -->|HTTP Request| gateway-api
+    gateway-api -->|REST API| orion-rates
+    gateway-api -->|REST API| altair-exchange
+    gateway-api -->|REST API| mercuriofx
+    gateway-api -->|Aggregates best rate| Client
 ```
 
-## Contributing
+## 5. Services
 
-Pull requests are welcome!
+- **orion-rates**: NestJS API for currency rates and conversion.
+- **altair-exchange**: NestJS API for currency rates and conversion.
+- **gateway-api**: .NET API gateway for service orchestration.
+- **mercuriofx**: Java/Quarkus microservice for currency conversion.
+
+## 6. Running Locally (Step by Step)
+
+### Step 1: Build and start all services
+
+```sh
+docker compose up --build
+```
+
+### Step 2: Access services and Swagger documentation
+
+- orion-rates: [http://localhost:3000](http://localhost:3000) | Swagger: [http://localhost:3000/api](http://localhost:3000/api)
+- altair-exchange: [http://localhost:5600](http://localhost:5600) | Swagger: [http://localhost:5600/api](http://localhost:5600/api)
+- gateway-api: [http://localhost:5500](http://localhost:5500) | Swagger: [http://localhost:5500/swagger](http://localhost:5500/swagger)
+- mercuriofx: [http://localhost:4000](http://localhost:4000) | Swagger: [http://localhost:4000/q/swagger-ui](http://localhost:4000/q/swagger-ui)
