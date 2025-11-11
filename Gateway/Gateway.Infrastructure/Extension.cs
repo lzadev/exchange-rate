@@ -16,7 +16,7 @@ public static class Extension
         var configuration = builder.Configuration;
 
         services.AddScoped<IProvider, AltairProvider>();
-        // services.AddScoped<IProvider, MercurioProvider>();
+        services.AddScoped<IProvider, MercurioProvider>();
         services.AddScoped<IProvider, OrionProvider>();
         
         services.Configure<JsonSerializerOptions>(options =>
@@ -24,8 +24,6 @@ public static class Extension
             options.PropertyNameCaseInsensitive = true;
         });
         
-        //add http client factory
-
         var settings = configuration.GetSection("ProviderSetting").Get<ProviderSetting>();
         
         ValidateSettings(settings);
@@ -58,11 +56,11 @@ public static class Extension
             throw new ArgumentNullException(nameof(settings), "Provider settings cannot be null.");
         
         ArgumentException.ThrowIfNullOrWhiteSpace(settings.AltairBaseUrl);
-        // ArgumentException.ThrowIfNullOrWhiteSpace(settings.MercurioBaseUrl);
+        ArgumentException.ThrowIfNullOrWhiteSpace(settings.MercurioBaseUrl);
         ArgumentException.ThrowIfNullOrWhiteSpace(settings.OrionBaseUrl);
         
         ArgumentException.ThrowIfNullOrWhiteSpace(settings.AltairApiKey);
-        // ArgumentException.ThrowIfNullOrWhiteSpace(settings.MercurioApiKey);
+        ArgumentException.ThrowIfNullOrWhiteSpace(settings.MercurioApiKey);
         ArgumentException.ThrowIfNullOrWhiteSpace(settings.OrionApiKey);
     }
 }

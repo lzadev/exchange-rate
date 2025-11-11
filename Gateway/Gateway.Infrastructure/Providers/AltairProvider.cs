@@ -9,7 +9,7 @@ internal class AltairProvider(
     IHttpClientFactory clientFactory,
     ILogger<AltairProvider> logger) : IProvider
 {
-    public async Task<decimal> GetRateAsync(string fromCurrency, string toCurrency, double amount)
+    public async Task<decimal> GetRateAsync(string fromCurrency, string toCurrency, decimal amount)
     {
         try
         {
@@ -26,8 +26,6 @@ internal class AltairProvider(
                 logger.LogError("Failed to fetch rate from Altair Exchange Provider : {StatusCode}", httpResponse.StatusCode);
                 return decimal.Zero;
             }
-
-            // var body = httpResponse.Content.ReadAsStringAsync();
 
             var response = JsonSerializer.Deserialize<AltairProviderResponse>(
                 await httpResponse.Content.ReadAsStringAsync());

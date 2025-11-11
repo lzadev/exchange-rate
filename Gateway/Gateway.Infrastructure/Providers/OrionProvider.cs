@@ -9,7 +9,7 @@ internal class OrionProvider(
     ILogger<OrionProvider> logger,
     IHttpClientFactory clientFactory) : IProvider
 {
-    public async Task<decimal> GetRateAsync(string fromCurrency, string toCurrency, double amount)
+    public async Task<decimal> GetRateAsync(string fromCurrency, string toCurrency, decimal amount)
     {
         try
         {
