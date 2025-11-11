@@ -10,6 +10,31 @@ Multi-service platform for currency exchange, including:
 
 > **Note:** Docker must be running before executing the project.
 
+## Currency Conversion Available
+
+The following currency pairs are supported for conversion:
+
+| From | To  |
+| ---- | --- |
+| USD  | EUR |
+| EUR  | USD |
+| USD  | GBP |
+| GBP  | USD |
+| EUR  | GBP |
+| GBP  | EUR |
+| USD  | JPY |
+| JPY  | USD |
+| EUR  | JPY |
+| JPY  | EUR |
+| USD  | DOP |
+| DOP  | USD |
+| EUR  | DOP |
+| DOP  | EUR |
+| GBP  | DOP |
+| DOP  | GBP |
+| JPY  | DOP |
+| DOP  | JPY |
+
 ## Services
 
 ### orion-rates
