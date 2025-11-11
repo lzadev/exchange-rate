@@ -1,3 +1,4 @@
+using Gateway.Api.Middlewares;
 using Gateway.Application;
 using Gateway.Infrastructure;
 
@@ -16,6 +17,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<GlobalExceptionMiddlewareHandler>();
 
 app.UseHttpsRedirection();
 
