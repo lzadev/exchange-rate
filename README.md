@@ -1,7 +1,9 @@
 # exchange-rate
 
 ## Overview
+
 Multi-service platform for currency exchange, including:
+
 - NestJS APIs (`orion-rates`, `altair-exchange`)
 - .NET APIs (`gateway-api`)
 - Java/Quarkus microservice (`mercuriofx`)
@@ -9,20 +11,25 @@ Multi-service platform for currency exchange, including:
 ## Services
 
 ### orion-rates
+
 NestJS API for currency rates and conversion.
 
 ### altair-exchange
+
 NestJS API for advanced exchange operations.
 
 ### gateway-api
+
 .NET API gateway for service orchestration.
 
 ### mercuriofx
+
 Java/Quarkus microservice for currency conversion.
 
 ## Running Locally
 
 1. Build and start all services:
+
    ```sh
    docker compose up --build
    ```
@@ -34,10 +41,12 @@ Java/Quarkus microservice for currency conversion.
    - mercuriofx: http://localhost:4000
 
 ## Environment Variables
+
 - `API_KEY` for NestJS services
 - `ASPNETCORE_ENVIRONMENT` for .NET services
 
 ## Project Structure
+
 ```
 orion-rates/
 altair-exchange/
@@ -47,4 +56,5 @@ docker-compose.yml
 ```
 
 ## Contributing
+
 Pull requests are welcome!
