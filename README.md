@@ -11,7 +11,16 @@ Multi-service platform for currency exchange, including:
 - .NET APIs (`gateway-api`)
 - Java/Quarkus microservice (`mercuriofx`)
 
-## 2. Project Structure
+## 2. Tech Stack
+
+| Service         | Framework        |
+| --------------- | ---------------- |
+| orion-rates     | Node.js / NestJS |
+| altair-exchange | Node.js / NestJS |
+| gateway-api     | .NET 8 / ASP.NET |
+| mercuriofx      | Java / Quarkus   |
+
+## 3. Project Structure
 
 ```
 orion-rates/
@@ -21,7 +30,7 @@ mercuriofx/
 docker-compose.yml
 ```
 
-## 3. Currency Conversion Available
+## 4. Currency Conversion Available
 
 The following currency pairs are supported for conversion:
 
@@ -46,7 +55,7 @@ The following currency pairs are supported for conversion:
 | JPY  | DOP |
 | DOP  | JPY |
 
-## 4. Communication Diagram
+## 5. Communication Diagram
 
 The `gateway-api` communicates with all backend services (`orion-rates`, `altair-exchange`, `mercuriofx`) to get the best exchange rate offer for the client request.
 
@@ -59,14 +68,14 @@ flowchart TD
     gateway-api -->|Aggregates best rate| Client
 ```
 
-## 5. Services
+## 6. Services
 
 - **orion-rates**: NestJS API for currency rates and conversion.
 - **altair-exchange**: NestJS API for currency rates and conversion.
 - **gateway-api**: .NET API gateway for service orchestration.
 - **mercuriofx**: Java/Quarkus microservice for currency conversion.
 
-## 6. Running Locally (Step by Step)
+## 7. Running Locally (Step by Step)
 
 ### Step 1: Build and start all services
 
@@ -76,7 +85,7 @@ docker compose up --build
 
 ### Step 2: Access services and Swagger documentation
 
-- orion-rates: [http://localhost:3000](http://localhost:3000) | Swagger: [http://localhost:3000/api](http://localhost:3000/api)
-- altair-exchange: [http://localhost:5600](http://localhost:5600) | Swagger: [http://localhost:5600/api](http://localhost:5600/api)
+- orion-rates: [http://localhost:3000](http://localhost:3000) | Swagger: [http://localhost:3000/docs](http://localhost:3000/docs)
+- altair-exchange: [http://localhost:5600](http://localhost:5600) | Swagger: [http://localhost:5600/docs](http://localhost:5600/docs)
 - gateway-api: [http://localhost:5500](http://localhost:5500) | Swagger: [http://localhost:5500/swagger](http://localhost:5500/swagger)
-- mercuriofx: [http://localhost:4000](http://localhost:4000) | Swagger: [http://localhost:4000/q/swagger-ui](http://localhost:4000/q/swagger-ui)
+- mercuriofx: [http://localhost:4000](http://localhost:4000) | Swagger: [http://localhost:4000/swagger](http://localhost:4000/swagger)
