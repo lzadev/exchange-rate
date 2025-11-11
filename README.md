@@ -8,6 +8,8 @@ Multi-service platform for currency exchange, including:
 - .NET APIs (`gateway-api`)
 - Java/Quarkus microservice (`mercuriofx`)
 
+> **Note:** Docker must be running before executing the project.
+
 ## Services
 
 ### orion-rates
@@ -54,7 +56,3 @@ Gateway/
 mercuriofx/
 docker-compose.yml
 ```
-
-## Contributing
-
-Pull requests are welcome!
