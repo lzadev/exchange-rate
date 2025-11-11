@@ -1,5 +1,6 @@
 using System.Net;
 using System.Text.Json;
+using Gateway.Api.Models;
 using Gateway.Application.Common.Exceptions;
 
 namespace Gateway.Api.Middlewares;
@@ -21,7 +22,7 @@ public class GlobalExceptionMiddlewareHandler(RequestDelegate next, ILogger<Glob
 
     private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
-        var statusCode = HttpStatusCode.InternalServerError;
+        HttpStatusCode statusCode;
         var message = "Internal Server Error, please try again later.";
 
         switch (exception)
@@ -41,11 +42,7 @@ public class GlobalExceptionMiddlewareHandler(RequestDelegate next, ILogger<Glob
                 break;
         }
 
-        var errorResponse = new
-        {
-            message,
-            statusCode = (int)statusCode,
-        };
+        var errorResponse = new ErrorResponse((int)statusCode, message);
 
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = (int)statusCode;

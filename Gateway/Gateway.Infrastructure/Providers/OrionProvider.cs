@@ -23,7 +23,8 @@ internal class OrionProvider(
 
             if (!httpResponse.IsSuccessStatusCode)
             {
-                logger.LogError("Failed to fetch rate from Orion Exchange Provider: {StatusCode}", httpResponse.StatusCode);
+                logger.LogError("Failed to fetch rate from Orion Exchange Provider: {StatusCode}",
+                    httpResponse.StatusCode);
                 return decimal.Zero;
             }
 
@@ -31,14 +32,13 @@ internal class OrionProvider(
                 await httpResponse.Content.ReadAsStringAsync());
 
             if (response != null) return response.Rate;
-            
+
             logger.LogError("Received null response from Orion Exchange Provider");
             return decimal.Zero;
-
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,"Error while fetching rate from Orion Exchange Provider");
+            logger.LogError(ex, "Error while fetching rate from Orion Exchange Provider");
             return decimal.Zero;
         }
     }

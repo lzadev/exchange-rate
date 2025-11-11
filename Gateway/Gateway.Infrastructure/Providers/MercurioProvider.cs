@@ -19,7 +19,7 @@ internal class MercurioProvider(
             var client = clientFactory.CreateClient(Constants.MercurioClientName);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
-            
+
             var request = new MercurioProviderRequest
             {
                 From = fromCurrency,
@@ -35,7 +35,8 @@ internal class MercurioProvider(
 
             if (!httpResponse.IsSuccessStatusCode)
             {
-                logger.LogError("Failed to fetch rate from Mercurio Exchange Provider: {StatusCode}", httpResponse.StatusCode);
+                logger.LogError("Failed to fetch rate from Mercurio Exchange Provider: {StatusCode}",
+                    httpResponse.StatusCode);
                 return decimal.Zero;
             }
 
@@ -51,7 +52,7 @@ internal class MercurioProvider(
             return decimal.Zero;
         }
     }
-    
+
     private static string SerializeToXml<T>(T obj)
     {
         var xmlSerializer = new XmlSerializer(typeof(T));
@@ -73,5 +74,4 @@ internal class MercurioProvider(
 
         return stringWriter.ToString();
     }
-
 }

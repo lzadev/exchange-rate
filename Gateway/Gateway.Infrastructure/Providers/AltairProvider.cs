@@ -23,7 +23,8 @@ internal class AltairProvider(
 
             if (!httpResponse.IsSuccessStatusCode)
             {
-                logger.LogError("Failed to fetch rate from Altair Exchange Provider : {StatusCode}", httpResponse.StatusCode);
+                logger.LogError("Failed to fetch rate from Altair Exchange Provider : {StatusCode}",
+                    httpResponse.StatusCode);
                 return decimal.Zero;
             }
 
@@ -31,14 +32,13 @@ internal class AltairProvider(
                 await httpResponse.Content.ReadAsStringAsync());
 
             if (response != null) return response.Data.Total;
-            
+
             logger.LogError("Received null response from Altair Exchange Provider");
             return decimal.Zero;
-
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,"Error while fetching rate from Altair Exchange Provider");
+            logger.LogError(ex, "Error while fetching rate from Altair Exchange Provider");
             return decimal.Zero;
         }
     }
