@@ -61,11 +61,11 @@ Java/Quarkus microservice for currency conversion.
    docker compose up --build
    ```
 
-2. Access services:
-   - orion-rates: http://localhost:3000
-   - altair-exchange: http://localhost:5600
-   - gateway-api: http://localhost:5500
-   - mercuriofx: http://localhost:4000
+2. Access services and Swagger documentation:
+   - orion-rates: [http://localhost:3000](http://localhost:3000) | Swagger: [http://localhost:3000/api](http://localhost:3000/api)
+   - altair-exchange: [http://localhost:5600](http://localhost:5600) | Swagger: [http://localhost:5600/api](http://localhost:5600/api)
+   - gateway-api: [http://localhost:5500](http://localhost:5500) | Swagger: [http://localhost:5500/swagger](http://localhost:5500/swagger)
+   - mercuriofx: [http://localhost:4000](http://localhost:4000) | Swagger: [http://localhost:4000/q/swagger-ui](http://localhost:4000/q/swagger-ui)
 
 ## Environment Variables
 
@@ -81,3 +81,7 @@ Gateway/
 mercuriofx/
 docker-compose.yml
 ```
+
+## Contributing
+
+Pull requests are welcome!
