@@ -9,6 +9,8 @@ services:
     environment:
       - NODE_ENV=production
       - API_KEY=A7k9bT3vQf6ZsR2pL8m4HyQ2
+    networks:
+      - exchange-net
 
   altair-exchange:
     build:
@@ -19,15 +21,19 @@ services:
     environment:
       - NODE_ENV=production
       - API_KEY=A7k9bT3vQf6ZsR2pL8m4HyQ2
+    networks:
+      - exchange-net
 
-  # exchange-gateway:
-  #   build:
-  #     context: ./ExchangeGateway
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "5500:80"
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Production
+  gateway-api:
+    build:
+      context: ./Gateway
+      dockerfile: Gateway.Api/Dockerfile
+    ports:
+      - "5500:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - exchange-net
 
   mercuriofx:
     build:
@@ -38,3 +44,8 @@ services:
     environment:
       - NODE_ENV=production
       - API_KEY=MercurioFX2024Key
+    networks:
+      - exchange-net
+
+networks:
+  exchange-net:
