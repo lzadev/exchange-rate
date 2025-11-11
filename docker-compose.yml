@@ -20,7 +20,7 @@ services:
       - "5600:3000"
     environment:
       - NODE_ENV=production
-      - API_KEY=A7k9bT3vQf6ZsR2pL8m4HyQ2
+      - API_KEY=rtv6A7k9bT3vQf6ZsR2pL8m4HyQ2
     networks:
       - exchange-net
 
@@ -31,6 +31,13 @@ services:
     ports:
       - "5500:8080"
     environment:
+      - Apikey=GatewayApiKey2024
+      - ProviderSetting__AltairBaseUrl=http://altair-exchange:3000
+      - ProviderSetting__OrionBaseUrl=http://orion-rates:3000
+      - ProviderSetting__MercurioBaseUrl=http://mercuriofx:8080
+      - ProviderSetting__AltairApiKey=rtv6A7k9bT3vQf6ZsR2pL8m4HyQ2
+      - ProviderSetting__OrionApiKey=A7k9bT3vQf6ZsR2pL8m4HyQ2
+      - ProviderSetting__MercurioApiKey=MercurioFX2024Key
       - ASPNETCORE_ENVIRONMENT=Development
     networks:
       - exchange-net
