@@ -20,14 +20,14 @@ services:
       - NODE_ENV=production
       - API_KEY=A7k9bT3vQf6ZsR2pL8m4HyQ2
 
-  exchange-gateway:
-    build:
-      context: ./ExchangeGateway
-      dockerfile: Dockerfile
-    ports:
-      - "5500:80"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+  # exchange-gateway:
+  #   build:
+  #     context: ./ExchangeGateway
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "5500:80"
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Production
 
   mercuriofx:
     build:
