@@ -9,6 +9,7 @@ Multi-service platform for currency exchange, including:
 - Java/Quarkus microservice (`mercuriofx`)
 
 > **Note:** Docker must be running before executing the project.
+> **Info:** All API keys are set up in the docker-compose file only for demo purposes.
 
 ## Currency Conversion Available
 
@@ -62,15 +63,11 @@ Java/Quarkus microservice for currency conversion.
    ```
 
 2. Access services and Swagger documentation:
+
    - orion-rates: [http://localhost:3000](http://localhost:3000) | Swagger: [http://localhost:3000/api](http://localhost:3000/api)
    - altair-exchange: [http://localhost:5600](http://localhost:5600) | Swagger: [http://localhost:5600/api](http://localhost:5600/api)
    - gateway-api: [http://localhost:5500](http://localhost:5500) | Swagger: [http://localhost:5500/swagger](http://localhost:5500/swagger)
    - mercuriofx: [http://localhost:4000](http://localhost:4000) | Swagger: [http://localhost:4000/q/swagger-ui](http://localhost:4000/q/swagger-ui)
-
-## Environment Variables
-
-- `API_KEY` for NestJS services
-- `ASPNETCORE_ENVIRONMENT` for .NET services
 
 ## Project Structure
 
@@ -81,7 +78,3 @@ Gateway/
 mercuriofx/
 docker-compose.yml
 ```
-
-## Contributing
-
-Pull requests are welcome!
